@@ -182,8 +182,6 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
             string tagId = await GetTagId(tagName, tagDescription);
             await PostImage(imageBytes, tagId);
         }
-
-        await TrainProject();
     }
     catch (Exception e)
     {
@@ -318,12 +316,3 @@ static async Task PostImage(byte[] imageBytes, string tagId)
 }
 
 //----------------------------------------------------------------------------------
-
-static async Task TrainProject()
-{
-    var uri = "https://dronevisionmunichhack.azurewebsites.net/api/TrainProject"
-            + "?code=MJ6HArHZ7rIX6SJ1uwtOiyFnihOhTYggmDl1hZ9wfFavD/cO/a6puA==";
-    var response = await _client.GetAsync(uri);
-
-    _log.Info(await response.Content.ReadAsStringAsync());
-}
