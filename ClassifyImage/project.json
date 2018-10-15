@@ -1,0 +1,9 @@
+{
+  "frameworks": {
+    "net46":{
+      "dependencies": {
+          "Simple.OData.Client": "5.5.0"
+      }
+    }
+  }
+}

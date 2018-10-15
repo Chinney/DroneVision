@@ -1,0 +1,120 @@
+﻿{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "DroneVisionAPI",
+    "description": "DroneVision"
+  },
+  "host": "dronevisionmunichhack.azurewebsites.net",
+  "basePath": "/api/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [],
+  "produces": [],
+  "paths": {
+    "/PostTrainingImage": {
+      "post": {
+        "tags": [
+          "PostTrainingImage"
+        ],
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "operationId": "PostTrainingImage",
+        "summary": "PostTrainingImage",
+        "description": "PostTrainingImage",
+        "parameters": [
+          {
+            "name": "code",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "file",
+            "in": "formData",
+            "required": true,
+            "x-ms-media-kind": "image",
+            "type": "file"
+          },
+          {
+            "name": "tagName",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "tagDescription",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "PostTrainingImage",
+            "schema": {
+              "$ref": "#/definitions/PostTrainingImageResponseSchema"
+            }
+          }
+        }
+      }
+    },
+    "/GetImagesForTag": {
+      "get": {
+        "tags": [
+          "GetImagesForTag"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "operationId": "GetImagesForTag",
+        "summary": "GetImagesForTag",
+        "description": "GetImagesForTag",
+        "parameters": [
+          {
+            "name": "code",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "tagName",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "GetImagesForTag",
+            "schema": {
+              "$ref": "#/definitions/GetImagesForTagResponseSchema"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "PostTrainingImageResponseSchema": {
+      "type": "string"
+    },
+    "GetImagesForTagResponseSchema": {
+      "type": "object"
+    }
+  },
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {},
+  "security": [],
+  "tags": []
+}
